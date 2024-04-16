@@ -1,0 +1,111 @@
+@import 'vars';
+#checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.checkbox {
+  //max-width: 250px;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  & + label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &::before {
+      content: '';
+      transition:
+        border 0.08s ease-in,
+        background-color 0.08s ease-in;
+      display: inline-block;
+      border: 1px solid $common-border-main;
+      height: 16px;
+      width: 16px;
+      margin-right: 10px;
+      border-radius: 3px;
+    }
+  }
+  &:checked + label::before {
+    background-image: url('../../assets/check-icon.svg');
+    background-color: $primary-main;
+    border: 1px solid $primary-main;
+  }
+
+  &:hover + label::before {
+    border: 1px solid $primary-hover;
+  }
+
+  &:hover:checked + label::before {
+    border: 1px solid $primary-hover;
+    background-color: $primary-hover;
+  }
+  &:hover:indeterminate + label::before {
+    border: 1px solid $primary-hover;
+    background-color: $primary-hover;
+  }
+  &:active + label::before {
+    background-color: $primary-active;
+    border: 1px solid $primary-active;
+  }
+
+  &:focus + label::before {
+    outline: 1px solid $common-focus;
+    outline-offset: 1px;
+  }
+  &:disabled + label {
+    cursor: default;
+  }
+  &:disabled:not(:checked) + label {
+    color: $common-disabled-main;
+    &::before {
+      background-color: $common-disabled-background;
+      border: 1px solid $common-disabled-border;
+    }
+  }
+  &:indeterminate + label:before {
+    background-image: url('../../assets/dash-icon.svg');
+    background-color: $primary-main;
+    border: 1px solid $primary-main;
+  }
+  &:disabled:checked + label {
+    color: $common-disabled-main;
+    &::before {
+      background-image: url('../../assets/check-icon.svg');
+      background-color: $common-disabled-main;
+      border: 1px solid $common-disabled-border;
+    }
+  }
+  &:disabled:indeterminate + label {
+    color: $common-disabled-main;
+    &::before {
+      background-image: url('../../assets/dash-icon.svg');
+      background-color: $common-disabled-main;
+      border: 1px solid $common-disabled-border;
+    }
+  }
+}
+.notice {
+  margin-left: 28px;
+  max-width: 250px;
+  word-break: break-word;
+  width: 100%;
+  svg {
+    margin-right: 6px;
+  }
+  span {
+    font-size: 14px;
+  }
+}
+.alert {
+  color: $danger-main;
+}
+.success {
+  color: $success-main;
+}
+
+.notice-desc {
+  color: inherit;
+}

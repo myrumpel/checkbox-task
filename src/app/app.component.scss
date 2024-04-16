@@ -1,0 +1,17 @@
+.section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  width: 100%;
+  input {
+    margin-bottom: 16px;
+  }
+}
+.btn-elem {
+  margin-bottom: 8px;
+}

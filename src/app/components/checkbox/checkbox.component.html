@@ -1,0 +1,63 @@
+<div class="checkbox__wrapper">
+  <input
+    class="checkbox"
+    id="checkbox"
+    type="checkbox"
+    (change)="handleChanges($event)"
+    [checked]="checked"
+    [indeterminate]="indeterminate"
+    [disabled]="disabled" />
+  <label class="checkbox__label" for="checkbox">
+    <strong>{{ label }}</strong></label
+  >
+  <ng-container *ngIf="type">
+    <div class="notice">
+      <ng-container *ngTemplateOutlet="content"></ng-container></div
+  ></ng-container>
+</div>
+
+<ng-template #content>
+  <ng-container [ngSwitch]="type">
+    <ng-container *ngSwitchCase="'invalid'">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="12"
+        height="12"
+        viewBox="0 0 12 12"
+        fill="none">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M4.85471 0.707823C5.35565 -0.187763 6.64437 -0.187917 7.14552 0.707546L11.8195 9.05902C12.3091 9.9339 11.6768 11.0125 10.6742 11.0125H1.32887C0.326428 11.0125 -0.305976 9.93417 0.18338 9.05929L4.85471 0.707823ZM7.00001 7V3H5.00001V7H7.00001ZM5.99966 10C6.55175 10 6.99931 9.55229 6.99931 9C6.99931 8.44771 6.55175 8 5.99966 8C5.44757 8 5.00001 8.44771 5.00001 9C5.00001 9.55229 5.44757 10 5.99966 10Z"
+          fill="#D25151" />
+      </svg>
+      <span class="alert">{{ invalid }}</span>
+    </ng-container>
+    <ng-container *ngSwitchCase="'valid'">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="12"
+        height="12"
+        viewBox="0 0 12 12"
+        fill="none">
+        <g clip-path="url(#clip0_13_84)">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0ZM5.29537 8.73744L9.62975 4.40306L8.39231 3.16562L5.29537 6.26256L3.59429 4.56149L2.35686 5.79893L5.29537 8.73744Z"
+            fill="#52AD48" />
+        </g>
+        <defs>
+          <clipPath id="clip0_13_84">
+            <rect width="12" height="12" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <span class="success">{{ valid }}</span>
+    </ng-container>
+    <ng-container *ngSwitchCase="'caption'">
+      <span class="notice">{{ caption }}</span>
+    </ng-container>
+  </ng-container>
+</ng-template>
